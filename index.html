@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#171321"><meta name="description" content="Leitor de mangás em português para navegador.">
+<title>Yukari Manga BR</title><link rel="manifest" href="manifest.json"><link rel="stylesheet" href="style.css">
+</head><body>
+<header><a class="brand" href="#"><span class="logo">読</span><span>Yukari <b>Manga BR</b></span></a><button id="menuBtn" aria-label="Abrir menu">☰</button></header>
+<main>
+<section class="hero"><p class="eyebrow">SEU LEITOR DE MANGÁS</p><h1>Leia do seu jeito.</h1><p>Uma experiência simples para organizar e ler seus mangás no celular.</p>
+<div class="urlbox"><input id="chapterUrl" type="url" placeholder="Cole aqui o link do capítulo"><button id="openUrl">Abrir link</button></div>
+<p class="hint">Alguns sites bloqueiam a abertura dentro de outros aplicativos. Nesses casos, o link será aberto em uma nova aba.</p>
+</section>
+<section class="panel"><div class="sectionhead"><div><h2>Sua biblioteca</h2><p>Abra imagens salvas no aparelho.</p></div><label class="upload">＋ Adicionar imagens<input id="imageFiles" type="file" accept="image/*" multiple hidden></label></div>
+<div id="empty" class="empty"><span>▤</span><b>Sua biblioteca está vazia</b><small>Selecione imagens de páginas para começar a ler.</small></div>
+<div id="reader" class="reader" hidden><div class="readerbar"><span id="pageCount">Página 1</span><div><button id="prev">Anterior</button><button id="next">Próxima</button></div></div><img id="pageImage" alt="Página do mangá"><input id="pageSlider" type="range" min="0" max="0" value="0"></div>
+</section>
+<section class="features"><article><span>📚</span><h3>Biblioteca local</h3><p>Leia imagens armazenadas no seu celular.</p></article><article><span>📱</span><h3>Feito para celular</h3><p>Interface adaptada para telas pequenas.</p></article><article><span>🔒</span><h3>Privacidade</h3><p>As imagens selecionadas ficam no seu navegador.</p></article></section>
+</main><footer>Yukari Manga BR · Projeto independente, não oficial.</footer>
+<div id="menu" class="menu" hidden><button id="homeBtn">Início</button><button id="aboutBtn">Sobre o projeto</button></div>
+<script src="app.js"></script></body></html>
