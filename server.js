@@ -16,8 +16,10 @@ const server = http.createServer(async (req,res) => {
     const upstream = await fetch(target.href,{headers:{"user-agent":"Mozilla/5.0","accept":"text/html,application/xhtml+xml"},signal:AbortSignal.timeout(15000)});
     if (!upstream.ok) return send(res,502,{error:"MangaFire respondeu com status "+upstream.status+". O site pode estar bloqueando o acesso.",blocked:true});
     const html = await upstream.text();
-    const titleMatch = html.match(/<title[^>]*>(.*?)<\/title>/is);
-    const title = titleMatch ? titleMatch[1].replace(/<[^>]*>/g,"").trim() : "Capítulo";
+    const titleStart = html.toLowerCase().indexOf("<title");
+    const titleOpen = titleStart >= 0 ? html.indexOf(">", titleStart) : -1;
+    const titleEnd = titleOpen >= 0 ? html.toLowerCase().indexOf("</title>", titleOpen) : -1;
+    const title = titleEnd > titleOpen ? html.slice(titleOpen + 1, titleEnd).trim() : "Capítulo";
     const found = [];
     for (const tag of html.match(/<img\b[^>]*>/gi) || []) {
       const m = tag.match(/(?:data-src|data-lazy-src|src)=["']([^"']+)["']/i);
